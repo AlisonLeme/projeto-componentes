@@ -1,0 +1,10 @@
+.form {
+    margin: 30px 0;
+}
+
+.box {
+    padding: 20px 10px;
+    border-radius: 10px;
+    box-shadow: .1px .1px 1px #4e4c4a;;
+    margin-bottom: 20px;
+}
