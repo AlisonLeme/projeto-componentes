@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Formik } from 'formik';
 
 import {
@@ -17,7 +18,7 @@ import { initialValues, validationSchema } from './formValues';
 
 import style from './form.module.css'
 
-const Form = () => {
+const Form = ({ clientes, setClientes }) => {
 
   return (
     <>
@@ -25,6 +26,16 @@ const Form = () => {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values) => {
+          let novoCliente = {
+            name:values.name,
+            phone:values.phone
+          }
+
+          setClientes([
+            ...clientes,
+            novoCliente
+          ])
+
           window.alert('Dados cadastrados!')
         }}
       >
@@ -37,8 +48,6 @@ const Form = () => {
             handleSubmit,
             setFieldValue,
           }) => {
-
-            
 
             return (
               <form onSubmit={handleSubmit} className={style.form}>
